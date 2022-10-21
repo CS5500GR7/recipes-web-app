@@ -15,23 +15,16 @@ import React, {Fragment, useEffect, useState} from 'react';
 import userService from "./services/user-service";
 
 function App() {
+  const [user, setUser] = useState(undefined)
+
+  const onClickLogout = () => {
+    return userService.logout().then(() => setUser(undefined));
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+
+      </div>
+
   );
 }
 
