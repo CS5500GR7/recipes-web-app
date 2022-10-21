@@ -21,10 +21,91 @@ function App() {
     return userService.logout().then(() => setUser(undefined));
   }
   return (
-      <div>
+      <div className="container-fluid">
+        <BrowserRouter>
+          <nav className='navbar navbar-expand-lg navbar-light'>
+
+            <Link className='navbar-brand homeScreen-cocktail homeScreen-title' to='/'> Cocktail Time </Link>
+
+            <div className='collapse navbar-collapse'>
+
+            </div>
+
+            {
+                user &&
+                <>
+                  <div className="welcome-sign">Welcome: {user.username}</div>
+
+                  <button className='btn btn-outline-none' onClick={onClickLogout}>Logout</button>
+                </>
+            }
+            {
+                !user &&
+                <Fragment>
+                  <Link className='btn btn-outline-none' to='/login'>Login</Link>
+                </Fragment>
+            }
+
+
+
+
+          </nav>
+
+          <Switch>
+            <Route path="/" exact = {true}>
+              <HomeScreen/>
+            </Route>
+
+            <Route path="/login" exact = {true}>
+              <Login user={user} setUser={setUser}/>
+            </Route>
+
+            <Route path="/register" exact ={true}>
+              <Register user={user}/>
+            </Route>
+
+            <Route path={["/search", "/search/:cocktailParams"]} exact = {true}>
+              <SearchScreen/>
+            </Route>
+
+            <Route path="/privacy" exact = {true}>
+              <Privacy/>
+            </Route>
+
+            <Route path="/details/:cocktailId" exact = {true}>
+              <DetailsScreen user={user}/>
+            </Route>
+
+            <Route path="/profiles" exact = {true}>
+              <ProfileAdmin/>
+            </Route>
+
+            <Route path="/about" exact = {true}>
+              <AboutUs/>
+            </Route>
+
+            <Route path="/others" exact = {true}>
+              <Others user={user}/>
+            </Route>
+
+            <Route path={["/profile", "/profiles/:uid"]} exact = {true}>
+              <Profile user={user} setUser={setUser}/>
+            </Route>
+          </Switch>
+          <div>
+
+          </div>
+          <div className="text-center content-wrap page-container main-footer footer-separation-padding">
+            <div>
+              <h4 className="rose-red">What is cocktail?</h4>
+            </div>
+            <div style={{color: "darkgray"}}>
+              An alcoholic drink consisting of a spirit or spirits mixed with other ingredients, such as fruit juice or cream.
+            </div>
+          </div>
+        </BrowserRouter>
 
       </div>
-
   );
 }
 
