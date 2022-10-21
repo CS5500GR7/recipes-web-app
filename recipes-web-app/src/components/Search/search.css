@@ -1,0 +1,21 @@
+.search-top-margin {
+    margin-top: 100px;
+}
+
+.search-bottom-margin {
+    padding-bottom: 150px;
+}
+
+.separation-padding {
+    padding-top: 40px;
+}
+.button-search{
+    background-color: indianred;
+    border-color: indianred;
+
+}
+.button-search:hover{
+    background-color: darkred;
+    border-color: darkred;
+
+}
