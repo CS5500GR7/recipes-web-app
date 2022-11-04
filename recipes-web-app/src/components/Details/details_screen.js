@@ -1,101 +1,165 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import reviewService from "../../services/review-service";
+import { Link, useHistory, useParams } from "react-router-dom";
 import "./detail.css";
+import "../../vendor/fontawesome/css/all.min.css";
+import cocktailService from "../../services/cocktail-service";
+import ReviewList from "./detail-reviews";
+import IngredientDetail from "./ingredient-detail";
+import InstructionDetail from "./instruction-detail";
+const DetailsScreen = ({ user, setUser }) => {
+	const { cocktailId } = useParams();
+	const history = useHistory();
+	const [cocktail, setCocktail] = useState({});
+	const [favorite, setFavorite] = useState(false);
 
-const ReviewList = ({ cocktailId, user, cocktailName, cocktailImg }) => {
-	const [review, setReview] = useState([]);
-	const [myReview, setMyReview] = useState({});
+	const cocktailName =
+		cocktail.drinks && cocktail.drinks[0] && cocktail.drinks[0].strDrink;
+	const cocktailImg =
+		cocktail.drinks &&
+		cocktail.drinks[0] &&
+		cocktail.drinks[0].strDrinkThumb;
+
 	useEffect(() => {
-		findReviewsForCocktail();
-	}, [cocktailId]);
+		findCocktailByCocktailId();
+		if (user) {
+			favoriteService
+				.isFavorite(cocktailId, user._id)
+				.then((res) => setFavorite(res));
+		}
+	}, [cocktailId, user]);
 
-	const findReviewsForCocktail = () => {
-		reviewService.findReviewsForCocktail(cocktailId).then((data) => {
-			setReview(data);
+	const findCocktailByCocktailId = () => {
+		cocktailService.findCocktailByCocktailId(cocktailId).then((data) => {
+			setCocktail(data);
 		});
 	};
 
-	const submitHandler = () => {
-		reviewService
-			.createReviewForCocktail(
+	const onClickAddFavorite = () => {
+		favoriteService
+			.addFavorite(
 				cocktailId,
-				myReview.textArea,
+				user._id,
 				user.username,
 				cocktailName,
-				cocktailImg,
-				user._id
+				cocktailImg
 			)
-			.then((res) => console.log(res));
-		setReview((review) => [...review, myReview]);
+			.then(() => setFavorite(true));
 	};
-	return (
-		<div>
-			<h5 className="section-title">Reviews</h5>
 
-			<ul>
-				{review &&
-					review[0] &&
-					review.map((item, i) => {
-						return (
-							<li className="list-spacing" key={i}>
+	const onClickRemoveFavorite = () => {
+		favoriteService
+			.removeFavorite(cocktailId, user._id)
+			.then(() => setFavorite(false));
+	};
+
+	return (
+		<div className="container-fluid top-margin bottom-margin">
+			<div className="row">
+				<div className="col-sm-2" />
+				<div className="col-sm-8">
+					<br />
+					<button
+						className="btn btn-outline-primary"
+						onClick={() => {
+							history.goBack();
+						}}
+					>
+						Back
+					</button>
+					<br />
+					<h2 className="separation-padding cocktail-title">
+						{cocktailName}
+					</h2>
+					<div className="row">
+						{user && (
+							<div className="col-xs-4">
 								<Link
-									className="reviews-title"
-									to={
-										user &&
-										user._id &&
-										item.userId &&
-										user._id === item.userId
-											? "/profile"
-											: `/profiles/${item.userId}`
-									}
+									className="btn btn-outline-info mr-1"
+									to="/profile"
 								>
-									{item.username}
+									See Favorites{" "}
+									<span className="fa fa-folder" />
 								</Link>
-								<div className="reviews-text">
-									{item.textArea}
-								</div>
-							</li>
-						);
-					})}
-			</ul>
-			{!user && (
-				<>
-					<div className="alert alert-warning">
-						Please login to submit your review.
-					</div>
-				</>
-			)}
-			{user && (
-				<>
-					<h5 className="separation-padding">Submit Your Review</h5>
-					<div>
-						<textarea
-							id="reviewText"
-							placeholder="Please enter here."
-							value={myReview.textArea}
-							onChange={(e) => {
-								setMyReview({
-									...myReview,
-									textArea: e.target.value,
-									username: user.username,
-								});
-							}}
-							className="form-control"
-						/>
+								<>
+									{!favorite && (
+										<button
+											className="btn btn-outline-success"
+											onClick={onClickAddFavorite}
+										>
+											Add to Favorite{" "}
+											<span className="fa fa-plus-square" />
+										</button>
+									)}
+									{favorite && (
+										<button
+											className="btn btn-outline-danger"
+											onClick={onClickRemoveFavorite}
+										>
+											Remove Favorite{" "}
+											<span className="fa fa-trash" />
+										</button>
+									)}
+								</>
+							</div>
+						)}
+						<div className="col-xs-4"></div>
 					</div>
 					<br />
-					<div className="d-grid gap-2 d-md-block">
-						<button
-							className="btn btn-primary"
-							onClick={submitHandler}
-						>
-							Submit
-						</button>
+					<div className="text-center description-image">
+						<img src={cocktailImg} width={500} />
 					</div>
-				</>
-			)}
+					<br />
+
+					<div>
+						<h5 className="separation-padding section-title">
+							Category
+						</h5>
+						<p>
+							{cocktail.drinks &&
+								cocktail.drinks[0] &&
+								cocktail.drinks[0].strCategory}
+						</p>
+					</div>
+
+					<div>
+						<h5 className="section-title">Glass Type</h5>
+						<p>
+							{cocktail.drinks &&
+								cocktail.drinks[0] &&
+								cocktail.drinks[0].strGlass}
+						</p>
+					</div>
+
+					<div>
+						<InstructionDetail />
+					</div>
+
+					<div>
+						<IngredientDetail />
+					</div>
+					{/*<div>*/}
+					{/*    <a*/}
+					{/*        href={*/}
+					{/*            cocktail.drinks && cocktail.drinks[0] && cocktail.drinks[0].strImageSource*/}
+					{/*        }*/}
+					{/*        target="_blank">*/}
+					{/*        Download Image Here!*/}
+					{/*    </a>*/}
+					{/*</div>*/}
+
+					<div className="separation-padding">
+						<ReviewList
+							cocktailId={cocktailId}
+							user={user}
+							setUser={setUser}
+							cocktailName={cocktailName}
+							cocktailImg={cocktailImg}
+						/>
+					</div>
+				</div>
+				<div className="col-sm-2" />
+			</div>
 		</div>
 	);
 };
-export default ReviewList;
+export default DetailsScreen;
