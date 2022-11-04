@@ -10,6 +10,12 @@ const ReviewList = ({ cocktailId, user, cocktailName, cocktailImg }) => {
 		findReviewsForCocktail();
 	}, [cocktailId]);
 
+	const findReviewsForCocktail = () => {
+		reviewService.findReviewsForCocktail(cocktailId).then((data) => {
+			setReview(data);
+		});
+	};
+
 	const submitHandler = () => {
 		reviewService
 			.createReviewForCocktail(

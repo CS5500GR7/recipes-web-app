@@ -6,6 +6,8 @@ import cocktailService from "../../services/cocktail-service";
 import ReviewList from "./detail-reviews";
 import IngredientDetail from "./ingredient-detail";
 import InstructionDetail from "./instruction-detail";
+import favoriteService from "../../services/favorite-service";
+
 const DetailsScreen = ({ user, setUser }) => {
 	const { cocktailId } = useParams();
 	const history = useHistory();
