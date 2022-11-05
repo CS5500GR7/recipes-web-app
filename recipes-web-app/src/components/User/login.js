@@ -1,11 +1,11 @@
+
 import React, {useState} from 'react'
 import {Link, useHistory} from "react-router-dom";
 import userService from "../../services/user-service";
 
 const Login = ({user, setUser}) =>{
     const [credentials, setCredentials] = useState({username: '', password: ''})
-    //const [username, setUsername] = useState('');
-    //const [password, setPassword] = useState('');
+
     const history = useHistory();
     const [check, setCheck] = useState("");
 
@@ -14,7 +14,7 @@ const Login = ({user, setUser}) =>{
             .then((user) => {
                 console.log(user)
                 if(user === 0) {
-                    //alert("Login failed, please try again")
+
                     setCheck("check")
                 } else {
                     setUser(user)
