@@ -1,0 +1,22 @@
+/*h2{*/
+/*    color: indianred;*/
+/*}*/
+h1{
+    color: indianred;
+    font-weight:bold;
+}
+h3{
+    color: indianred;
+}
+h4{
+    color: lightgrey;
+}
+h5{
+    color: darkgray;
+}
+p{
+    color: gray;
+}
+li{
+    color: gray;
+}
