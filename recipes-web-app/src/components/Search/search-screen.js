@@ -5,6 +5,7 @@ import './search.css'
 import {logout} from "../../services/user-service";
 
 const SearchScreen = () => {
+    console.log("我在run这个search组件啦")
     const history = useHistory();
     const {cocktailParams} = useParams()
     console.log(cocktailParams + "<- params");
@@ -35,8 +36,45 @@ const SearchScreen = () => {
             })
     }
     return (
-        <div>
+        <div className="container-fluid search-top-margin search-bottom-margin">
+            <div className="row">
+                <div className="col-sm-2"/>
+                <div className="col-sm-8">
+                    <div>
+                        <h2 className="rose-red"> Search Cocktail </h2>
+                        <input value={searchCocktail}
+                               onChange={(event) => {
+                                   setSearchCocktail(event.target.value)
+                               }}
+                               placeholder="Enter your search here."
+                               className = "form-control"/>
+                        <button
+                            onClick={() => {findCocktailByName(searchCocktail)}}
+                            className = "btn btn-primary btn-block button-search">
+                            Search
+                        </button>
+                    </div>
 
+                    <ul className="list-group">
+                        {
+                            results && results.drinks && results.drinks.map((cocktail) => {
+                                return(
+                                    <li className="list-group-item">
+                                        <Link to={`/details/${cocktail.idDrink}`}>
+                                            <div>
+                                                {cocktail.strDrink}
+                                                <img className="float-right" src={cocktail.strDrinkThumb} width={50}/>
+                                            </div>
+
+                                        </Link>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+                <div className="col-sm-2"/>
+            </div>
         </div>
     )
 }
