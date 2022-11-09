@@ -5,7 +5,7 @@ const Privacy = () => {
         <>
             <h1>Privacy Policy</h1>
             <p>Last updated: November 5, 2022</p>
-            <p>This Privacy Policy describes Drink Masters policies and procedures on the collection, use and disclosure of Your
+            <p>This Privacy Policy describes Cocktail Time policies and procedures on the collection, use and disclosure of Your
                 information when You use the Service and tells You about Your privacy rights and how the law protects
                 You.</p>
             <p>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the
@@ -107,7 +107,7 @@ const Privacy = () => {
                 are effective when they are posted on this page.</p>
             <h3>Contact Us</h3>
             <p>If you have any questions about this Privacy Policy, You can contact us:</p>
-            <p>By email: drinkmasters@webdev.com</p>
+            <p>By email: cocktailtime@webdev.com</p>
 
         </>)
 }
