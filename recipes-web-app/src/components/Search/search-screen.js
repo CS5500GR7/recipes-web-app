@@ -24,13 +24,19 @@ const SearchScreen = () => {
                 });
         }
     }, []);
+    const [check, setCheck] = useState("");
 
     const findCocktailByName = (cocktailName) => {
         console.log("I am findCocktailByName function");
         cocktailService
             .findCocktailByName(cocktailName)
             .then((results) => {
-                setResults(results);
+                if(results.drinks === null) {
+                    setCheck("check3");
+                }
+                else {
+                    setResults(results);
+                }
             })
             .then(() => {
                 console.log("updated results");
@@ -62,10 +68,21 @@ const SearchScreen = () => {
                     </div>
 
                     <ul className="list-group">
+                        <div>
+                            {
+                                check === "check3" &&
+                                <>
+                                    <div className='alert alert-warning'>
+                                        We don't find related cocktail.
+                                    </div>
+                                </>
+                            }
+                        </div>
                         {results &&
                             results.drinks &&
                             results.drinks.map((cocktail) => {
                                 return (
+
                                     <li className="list-group-item">
                                         <Link
                                             to={`/details/${cocktail.idDrink}`}
@@ -78,6 +95,7 @@ const SearchScreen = () => {
                                                     width={50}
                                                 />
                                             </div>
+
                                         </Link>
                                     </li>
                                 );
