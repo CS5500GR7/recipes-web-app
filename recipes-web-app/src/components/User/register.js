@@ -26,7 +26,12 @@ const Register = ({user}) => {
                 if (user === 0) {
                     //alert("username already taken")
                     setCheck("check")
-                } else {
+                }
+                else if (user == 1) {
+                    //alert("email is not valid")
+                    setCheck("check2")
+                }
+                else {
                     history.push("/login")
                 }
             })
@@ -60,7 +65,17 @@ const Register = ({user}) => {
                                     check === "check" &&
                                     <>
                                         <div className='alert alert-warning'>
-                                            Username already taken, please input a new username.
+                                            Username is already taken. Please input a new username.
+                                        </div>
+                                    </>
+                                }
+                            </div>
+                            <div>
+                                {
+                                    check === "check2" &&
+                                    <>
+                                        <div className='alert alert-warning'>
+                                            Invalid email. Please input a valid email.
                                         </div>
                                     </>
                                 }
