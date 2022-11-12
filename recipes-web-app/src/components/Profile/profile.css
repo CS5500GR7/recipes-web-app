@@ -1,5 +1,5 @@
 .profile-bio {
-    border: 5px solid rgba(133,88,88);
+    border: 5px solid rgb(245, 142, 10);
     border-radius: 10px;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .rose-red {
-    color: rgba(133,88,88);
+    color: rgb(243, 151, 26);
 }
 
 .bio-block {
@@ -18,13 +18,13 @@
 }
 
 .about-block {
-    border: 5px solid rgba(133,88,88);
+    border: 5px solid rgb(245, 142, 10);
     border-radius: 10px;
     padding: 15px;
 }
 
 .review-block {
-    border: 5px solid rgba(133,88,88);
+    border: 5px solid rgb(245, 142, 10);
     border-radius: 10px;
     padding: 20px;
 }
@@ -36,7 +36,7 @@
 }
 
 .favorite-block {
-    border: 5px solid rgba(133,88,88);
+    border: 5px solid rgb(245, 142, 10);
     border-radius: 15px;
     padding: 20px;
 }

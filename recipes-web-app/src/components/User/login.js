@@ -85,7 +85,7 @@ const Login = ({user, setUser}) =>{
                             <div className="form-group row">
                                 <label className="col-sm-2 col-form-label"></label>
                                 <div className="col-sm-10">
-                                    <button onClick={onClickLogin} type="button" className="btn btn-primary btn-block">Login</button>
+                                    <button onClick={onClickLogin} type="button" className="btn btn-warning btn-block">Login</button>
                                     <div className="row">
                                         <div className="col-4">
                                         </div>

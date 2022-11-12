@@ -49,7 +49,7 @@ const Register = ({user}) => {
                         <div className='alert alert-info'>
                             You're already logged in
                         </div>
-                        <button className='btn btn-outline-secondary'
+                        <button className='btn btn-warning'
                                 onClick={() => history.goBack()}>
                             Go Back
                         </button>
@@ -208,7 +208,7 @@ const Register = ({user}) => {
                             <div className="form-group row">
                                 <label className="col-sm-2 col-form-label"></label>
                                 <div className="col-sm-10">
-                                    <button onClick={onClickRegister} type="button" className="btn btn-primary btn-block">Sign up
+                                    <button onClick={onClickRegister} type="button" className="btn btn-warning btn-block">Sign up
                                     </button>
                                     <div className="row">
                                         <div className="col-4">

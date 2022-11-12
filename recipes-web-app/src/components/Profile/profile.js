@@ -58,7 +58,7 @@ const Profile = ({user, setUser}) => {
                 <Link className='btn btn-outline-primary' to='/login'>Back to login page</Link>
             </>
             }
-            {/*是本人的profile或者admin进来的都能看见bio，about me and reviews*/}
+            {}
             {
                 (user || uid) &&
                 <>

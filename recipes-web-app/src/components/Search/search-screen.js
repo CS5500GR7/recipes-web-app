@@ -48,7 +48,7 @@ const SearchScreen = () => {
                 <div className="col-sm-2" />
                 <div className="col-sm-8">
                     <div>
-                        <h2 className="rose-red"> Search Cocktail </h2>
+                        <h2 className="gold"> Search Cocktail </h2>
                         <input
                             value={searchCocktail}
                             onChange={(event) => {

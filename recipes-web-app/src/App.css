@@ -9,7 +9,7 @@
   font-family: "Malayalam MN", monospace;
   font-weight: normal;
   font-size: 2.5rem;
-  color: rgba(133,88,88)!important;
+  color: rgb(243, 151, 26) !important;
 
 }
 .homeScreen-cocktail {
@@ -21,7 +21,7 @@
   font-family: "Malayalam MN", cursive;
   font-weight: lighter;
   font-size: 1.3rem;
-  color: antiquewhite;
+  color: #f3971a;
 }
 
 .homeScreen-first-link {
@@ -65,7 +65,7 @@
   left: 20px;
 }
 .navigation-text {
-  color: darkgray;
+  color: #f3971a;
   font-size: x-small;
   position: relative;
   bottom: 5px;

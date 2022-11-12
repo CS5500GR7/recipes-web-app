@@ -30,7 +30,7 @@ function App() {
             to="/"
           >
             {" "}
-            Cocktail Time{" "}
+            Drink Masters{" "}
           </Link>
 
           <div className="collapse navbar-collapse"></div>
@@ -45,7 +45,7 @@ function App() {
           )}
           {!user && (
             <Fragment>
-              <Link className="btn btn-outline-none" to="/login">
+              <Link className="btn btn-warning" to="/login">
                 Login
               </Link>
             </Fragment>

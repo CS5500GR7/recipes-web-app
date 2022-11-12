@@ -18,14 +18,14 @@
     height: 100%;
     margin-bottom: 10%;
     border-radius: 20px;
-    box-shadow:0 0 30px 10px rgba(133, 88, 88, 0.7);
+    box-shadow:0 0 30px 10px rgb(245, 142, 10);
 }
 
 .img-fluid {
     width: 80%;
     height: 80%;
     border-radius: 20px;
-    box-shadow: 0 0 30px 10px rgba(133, 88, 88, 0.7);
+    box-shadow: 0 0 30px 10px rgba(117, 66, 3, 0.73);
 }
 
 .second-paragraph {

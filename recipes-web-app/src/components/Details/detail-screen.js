@@ -61,7 +61,7 @@ const DetailsScreen = ({ user, setUser }) => {
 				<div className="col-sm-8">
 					<br />
 					<button
-						className="btn btn-outline-primary"
+						className="btn btn-warning"
 						onClick={() => {
 							history.goBack();
 						}}

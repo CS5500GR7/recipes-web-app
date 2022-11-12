@@ -10,12 +10,12 @@
     padding-top: 40px;
 }
 .button-search{
-    background-color: indianred;
-    border-color: indianred;
+    background-color: #f3971a;
+    border-color: #f3971a;
 
 }
 .button-search:hover{
-    background-color: darkred;
-    border-color: darkred;
+    background-color: #f3971a;
+    border-color: #f3971a;
 
 }
