@@ -50,7 +50,7 @@ const Login = ({user, setUser}) =>{
                                 {
                                     check === "check" &&
                                     <>
-                                        <div className='alert alert-warning rose-red'>
+                                        <div className='alert alert-warning white'>
                                             Please check your username and password again.
                                         </div>
                                     </>
