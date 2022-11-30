@@ -18,3 +18,7 @@ test("Test about-us error", () => {
     let aboutUsFirstParagraph = "The Drink";
     expect(AboutUs()['props']['children'][0]['props']['children']).toBe(aboutUsFirstParagraph)
 });
+test("Test about-us error pass", () => {
+    let aboutUsFirstParagraph = "The Drink";
+    expect(AboutUs()['props']['children'][0]['props']['children']).not.toBe(aboutUsFirstParagraph)
+});
