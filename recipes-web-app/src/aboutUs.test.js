@@ -14,10 +14,11 @@ test("Test about-us ", () => {
     expect(AboutUs()['props']['children'][0]['props']['children']).toBe(aboutUsFirstParagraph)
     expect(AboutUs()['props']['children'][1]['props']['children']).toBe(aboutUsSecondParagraph)
 });
-test("Test about-us error", () => {
-    let aboutUsFirstParagraph = "The Drink";
-    expect(AboutUs()['props']['children'][0]['props']['children']).toBe(aboutUsFirstParagraph)
-});
+// This test is used to see the error message and get a better understanding.
+// test("Test about-us error", () => {
+//     let aboutUsFirstParagraph = "The Drink";
+//     expect(AboutUs()['props']['children'][0]['props']['children']).toBe(aboutUsFirstParagraph)
+// });
 test("Test about-us error pass", () => {
     let aboutUsFirstParagraph = "The Drink";
     expect(AboutUs()['props']['children'][0]['props']['children']).not.toBe(aboutUsFirstParagraph)
