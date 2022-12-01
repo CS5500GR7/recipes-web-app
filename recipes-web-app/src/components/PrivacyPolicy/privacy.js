@@ -1,4 +1,5 @@
-import "./privacy.css"
+import React, { Component }  from 'react';
+import "./privacy.css";
 
 const Privacy = () => {
     return (
