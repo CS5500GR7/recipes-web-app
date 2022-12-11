@@ -18,7 +18,7 @@ const HomeScreen = () => {
                         <h3 className="home-text-2 homeScreen-subTitle">It’s finally that time of day.</h3>
                     </div>
 
-                    <div className="col-5 col-xs-10 ">
+                    <div className="col-5 col-xs-10 first-img-border">
                         <div>
                             <img src="https://images.unsplash.com/photo-1581845969227-30eb1857fa0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGNvY2t0YWlsfGVufDB8MXwyfGJsYWNrfA%3D%3D&auto=format&fit=crop&w=500&q=60"
                                  className="img-fluid" alt=""/>
