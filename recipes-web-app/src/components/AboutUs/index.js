@@ -21,6 +21,10 @@ const AboutUs = () => {
                 an amazing cocktail every time you visit.
             </p>
 
+            <p>
+                WARNING: You must be at least 21 years old to drink alcohol.
+            </p>
+
         </Fragment>
 
     );
