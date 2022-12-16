@@ -1,8 +1,6 @@
-
 import React, {useState} from 'react'
 import {Link, useHistory} from "react-router-dom";
 import registerService from "../../services/user-service"
-
 
 const Register = ({user}) => {
 
@@ -12,6 +10,7 @@ const Register = ({user}) => {
         password: '',
         firstName: '',
         lastName: '',
+        age: '',
         address: '',
         email: '',
         phone: '',
@@ -25,11 +24,19 @@ const Register = ({user}) => {
                 console.log(user)
                 if (user === 0) {
                     //alert("username already taken")
-                    setCheck("check")
+                    setCheck("check0")
                 }
                 else if (user == 1) {
                     //alert("email is not valid")
+                    setCheck("check1")
+                } 
+                else if (user == 2) {
+                    //alert("age is not valid")
                     setCheck("check2")
+                }
+                else if (user == 3) {
+                    //alert("must be 21 years old")
+                    setCheck("check3")
                 }
                 else {
                     history.push("/login")
@@ -62,7 +69,7 @@ const Register = ({user}) => {
 
                             <div>
                                 {
-                                    check === "check" &&
+                                    check === "check0" &&
                                     <>
                                         <div className='alert alert-warning'>
                                             Username or Email is already taken. Please input a new username or email.
@@ -72,10 +79,30 @@ const Register = ({user}) => {
                             </div>
                             <div>
                                 {
-                                    check === "check2" &&
+                                    check === "check1" &&
                                     <>
                                         <div className='alert alert-warning'>
                                             Invalid email. Please input a valid email.
+                                        </div>
+                                    </>
+                                }
+                            </div>
+                            <div>
+                                {
+                                    check === "check2" &&
+                                    <>
+                                        <div className='alert alert-warning'>
+                                            Invalid age. Numbers 1-100 only.
+                                        </div>
+                                    </>
+                                }
+                            </div>
+                            <div>
+                                {
+                                    check === "check3" &&
+                                    <>
+                                        <div className='alert alert-warning'>
+                                            You must be at least 21 years old to use Drink Masters.
                                         </div>
                                     </>
                                 }
@@ -122,6 +149,21 @@ const Register = ({user}) => {
                                         onChange={(e) => {
                                             setCredentials(
                                                 {...credentials, lastName: e.target.value})
+                                        }}></input>
+                                </div>
+                            </div>
+
+                            <div className="form-group row">
+                                <label htmlFor="age" className="col-sm-2 col-form-label">
+                                    Age </label>
+                                <div className="col-sm-10">
+                                    <input
+                                        value={credentials.age}
+                                        className="form-control"
+                                        placeholder="Age"
+                                        onChange={(e) => {
+                                            setCredentials(
+                                                {...credentials, age: e.target.value})
                                         }}></input>
                                 </div>
                             </div>
