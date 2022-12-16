@@ -65,7 +65,7 @@ const Register = ({user}) => {
                                     check === "check" &&
                                     <>
                                         <div className='alert alert-warning'>
-                                            Username is already taken. Please input a new username.
+                                            Username or Email is already taken. Please input a new username or email.
                                         </div>
                                     </>
                                 }
